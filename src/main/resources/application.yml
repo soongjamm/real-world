@@ -1,0 +1,4 @@
+
+logging:
+  level:
+    com.study.realworld: debug
