@@ -1,7 +1,6 @@
-package com.study.realworld.user.domain.repository;
+package com.study.realworld.user.adapter.out.persistence;
 
 import com.study.realworld.Fixtures;
-import com.study.realworld.user.domain.User;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
@@ -9,17 +8,17 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @DataJpaTest
-class UserRepositoryTest {
+class SpringDataUserRepositoryTest {
 
     @Autowired
-    UserRepository userRepository;
+    SpringDataUserRepository springDataUserRepository;
 
     @Test
     void persistence() {
-        User user = Fixtures.aUser().build();
+        UserJpaEntity user = Fixtures.aUserJpaEntity().build();
         assertThat(user.getId()).isNull();
 
-        User result = userRepository.save(user);
+        UserJpaEntity result = springDataUserRepository.save(user);
 
         assertThat(result.getId()).isNotNull();
     }

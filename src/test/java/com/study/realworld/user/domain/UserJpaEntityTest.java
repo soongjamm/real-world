@@ -1,12 +1,13 @@
 package com.study.realworld.user.domain;
 
 import com.study.realworld.Fixtures;
+import com.study.realworld.user.adapter.out.persistence.UserJpaEntity;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class UserTest {
+public class UserJpaEntityTest {
 
     @Test
     @DisplayName("유저 엔티티 생성")
@@ -17,7 +18,7 @@ public class UserTest {
         String password = "jakejake";
 
         // when
-        User user = Fixtures.aUser()
+        UserJpaEntity user = Fixtures.aUserJpaEntity()
                 .name(name)
                 .email(email)
                 .password(password)
