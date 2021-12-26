@@ -17,7 +17,7 @@ public class UserMapper {
 
     UserJpaEntity mapToJpaEntity(User user) {
         return UserJpaEntity.builder()
-                .name(user.getName())
+                .name(user.getUsername())
                 .email(user.getEmail())
                 .password(user.getPassword())
                 .build();

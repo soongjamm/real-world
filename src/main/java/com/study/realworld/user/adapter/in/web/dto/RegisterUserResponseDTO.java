@@ -37,7 +37,7 @@ public class RegisterUserResponseDTO {
     public static RegisterUserResponseDTO from(User user) {
         UserDTO userDTO = UserDTO.builder()
                 .email(user.getEmail())
-                .username(user.getName())
+                .username(user.getUsername())
                 .build();
 
         return RegisterUserResponseDTO.builder()
