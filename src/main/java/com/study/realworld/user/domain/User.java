@@ -10,6 +10,8 @@ public class User {
     private String username;
     private String email;
     private String password;
+    private String bio;
+    private String image;
 
     @Builder
     public User(Long id, String username, String email, String password) {
@@ -17,5 +19,11 @@ public class User {
         this.username = username;
         this.email = email;
         this.password = password;
+    }
+
+    public void updateProfile(String email, String bio, String image) {
+        this.email = email;
+        this.bio = bio;
+        this.image = image;
     }
 }

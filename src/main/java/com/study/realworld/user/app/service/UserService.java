@@ -1,19 +1,24 @@
 package com.study.realworld.user.app.service;
 
 import com.study.realworld.common.UseCase;
-import com.study.realworld.user.app.port.in.RegisterUserUseCase;
+import com.study.realworld.user.app.port.in.CommandUserUseCase;
 import com.study.realworld.user.app.port.in.RegisterUserCommand;
-import com.study.realworld.user.app.port.out.RegisterUserPort;
+import com.study.realworld.user.app.port.in.UpdateUserCommand;
+import com.study.realworld.user.app.port.out.CommandUserPort;
+import com.study.realworld.user.app.port.out.QueryUserPort;
 import com.study.realworld.user.domain.User;
 import lombok.RequiredArgsConstructor;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Optional;
+
 @UseCase
 @Transactional
 @RequiredArgsConstructor
-public class UserService implements RegisterUserUseCase {
+public class UserService implements CommandUserUseCase {
 
-    private final RegisterUserPort registerUserPort;
+    private final CommandUserPort commandUserPort;
+    private final QueryUserPort queryUserPort;
 
     @Override
     public User register(RegisterUserCommand command) {
@@ -23,6 +28,13 @@ public class UserService implements RegisterUserUseCase {
                 .password(command.getPassword())
                 .build();
 
-        return registerUserPort.register(user);
+        return commandUserPort.register(user);
+    }
+
+    @Override
+    public User updateProfile(UpdateUserCommand command) {
+        User user = queryUserPort.findByEmail(command.getEmail()).orElseThrow(IllegalArgumentException::new);
+        user.updateProfile(command.getEmail(), command.getBio(), command.getImage());
+        return user;
     }
 }
