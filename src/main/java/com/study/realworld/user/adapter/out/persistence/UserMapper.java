@@ -22,5 +22,4 @@ public class UserMapper {
                 .password(user.getPassword())
                 .build();
     }
-
 }

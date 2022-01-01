@@ -1,21 +1,20 @@
-package com.study.realworld.user.app.service;
+package com.study.realworld.user.app.port.in;
 
 import com.study.realworld.Fixtures;
 import com.study.realworld.user.adapter.out.persistence.SpringDataUserRepository;
 import com.study.realworld.user.adapter.out.persistence.UserJpaEntity;
-import com.study.realworld.user.app.port.in.CommandUserUseCase;
-import com.study.realworld.user.app.port.in.RegisterUserCommand;
-import com.study.realworld.user.app.port.in.UpdateUserCommand;
 import com.study.realworld.user.domain.User;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.transaction.annotation.Transactional;
 
 import static com.study.realworld.Fixtures.aUserJpaEntity;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.springframework.boot.test.context.SpringBootTest.WebEnvironment.NONE;
 
+@Transactional
 @SpringBootTest(webEnvironment = NONE)
 class CommandUserUseCaseTest {
 

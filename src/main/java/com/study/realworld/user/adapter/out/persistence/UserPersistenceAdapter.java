@@ -25,7 +25,15 @@ public class UserPersistenceAdapter implements CommandUserPort, QueryUserPort {
     }
 
     @Override
-    public Optional<User> findByEmail(String email) {
-        return springDataUserRepository.findByEmail(email);
+    public User findByEmail(String email) {
+        UserJpaEntity userJpaEntity = springDataUserRepository.findByEmail(email).orElseThrow(IllegalAccessError::new);
+        return userMapper.mapToDomainEntity(userJpaEntity);
+    }
+
+    @Override
+    public Optional<User> findByUsername(String username) {
+        Optional<UserJpaEntity> userJpaEntity = springDataUserRepository.findByUsername(username);
+
+        return userJpaEntity.map(userMapper::mapToDomainEntity);
     }
 }

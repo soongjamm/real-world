@@ -6,5 +6,7 @@ import java.util.Optional;
 
 public interface QueryUserPort {
 
-    Optional<User> findByEmail(String email);
+    User findByEmail(String email);
+
+    Optional<User> findByUsername(String username);
 }
