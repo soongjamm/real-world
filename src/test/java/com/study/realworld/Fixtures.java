@@ -8,7 +8,7 @@ public class Fixtures {
 
     public static User.UserBuilder aUser() {
         return User.builder()
-                .name("realworld")
+                .username("realworld")
                 .password("realworld!")
                 .email("realworld@email.com");
     }
@@ -16,14 +16,14 @@ public class Fixtures {
 
     public static UserJpaEntity.UserJpaEntityBuilder aUserJpaEntity() {
         return UserJpaEntity.builder()
-                .name("realworld")
+                .username("realworld")
                 .password("realworld!")
                 .email("realworld@email.com");
     }
 
     public static RegisterUserCommand.RegisterUserCommandBuilder aRegisterUserCommand() {
         return RegisterUserCommand.builder()
-                .name("realworld")
+                .username("realworld")
                 .password("realworld!")
                 .email("realworld@email.com");
     }

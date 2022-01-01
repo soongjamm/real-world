@@ -1,4 +1,4 @@
-package com.study.realworld.user.domain;
+package com.study.realworld.user.adapter.out.persistence;
 
 import com.study.realworld.Fixtures;
 import com.study.realworld.user.adapter.out.persistence.UserJpaEntity;
@@ -19,13 +19,13 @@ public class UserJpaEntityTest {
 
         // when
         UserJpaEntity user = Fixtures.aUserJpaEntity()
-                .name(name)
+                .username(name)
                 .email(email)
                 .password(password)
                 .build();
 
         // then
-        assertThat(user.getName()).isEqualTo(name);
+        assertThat(user.getUsername()).isEqualTo(name);
         assertThat(user.getEmail()).isEqualTo(email);
         assertThat(user.getPassword()).isEqualTo(password);
     }

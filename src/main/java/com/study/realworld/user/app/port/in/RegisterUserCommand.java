@@ -11,7 +11,7 @@ import javax.validation.constraints.NotNull;
 @EqualsAndHashCode(callSuper = false)
 public class RegisterUserCommand extends SelfValidating {
     @NotNull
-    private final String name;
+    private final String username;
 
     @NotNull
     private final String email;
@@ -20,8 +20,8 @@ public class RegisterUserCommand extends SelfValidating {
     private final String password;
 
     @Builder
-    public RegisterUserCommand(String name, String email, String password) {
-        this.name = name;
+    public RegisterUserCommand(String username, String email, String password) {
+        this.username = username;
         this.email = email;
         this.password = password;
     }

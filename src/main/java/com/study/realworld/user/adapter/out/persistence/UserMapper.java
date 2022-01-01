@@ -9,7 +9,7 @@ public class UserMapper {
     User mapToDomainEntity(UserJpaEntity user) {
         return User.builder()
                 .id(user.getId())
-                .name(user.getName())
+                .username(user.getUsername())
                 .email(user.getEmail())
                 .password(user.getPassword())
                 .build();
@@ -17,7 +17,7 @@ public class UserMapper {
 
     UserJpaEntity mapToJpaEntity(User user) {
         return UserJpaEntity.builder()
-                .name(user.getUsername())
+                .username(user.getUsername())
                 .email(user.getEmail())
                 .password(user.getPassword())
                 .build();

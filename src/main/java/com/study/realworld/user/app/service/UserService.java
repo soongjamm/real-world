@@ -18,7 +18,7 @@ public class UserService implements RegisterUserUseCase {
     @Override
     public User register(RegisterUserCommand command) {
         User user = User.builder()
-                .name(command.getName())
+                .username(command.getUsername())
                 .email(command.getEmail())
                 .password(command.getPassword())
                 .build();

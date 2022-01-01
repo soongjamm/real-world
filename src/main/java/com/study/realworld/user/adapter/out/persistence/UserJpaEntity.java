@@ -16,13 +16,13 @@ public class UserJpaEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String name;
+    private String username;
     private String email;
     private String password;
 
     @Builder
-    public UserJpaEntity(String name, String email, String password) {
-        this.name = name;
+    public UserJpaEntity(String username, String email, String password) {
+        this.username = username;
         this.email = email;
         this.password = password;
     }

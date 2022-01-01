@@ -32,7 +32,7 @@ public class RegisterUserDTO {
 
     public RegisterUserCommand mapToCommand() {
         return RegisterUserCommand.builder()
-                .name(this.user.username)
+                .username(this.user.username)
                 .email(this.user.email)
                 .password(this.user.password)
                 .build();
